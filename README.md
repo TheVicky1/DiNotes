@@ -1,6 +1,6 @@
-# Neuro-Notes 🧠
+# Di-Notes 🧠
 
-A modern, minimalist, and AI-inspired note-taking application designed to help you connect your thoughts. Neuro-Notes features a sleek UI, markdown support, and an interactive graph view to visualize connections between your ideas.
+A modern, minimalist, and AI-inspired note-taking application designed to help you connect your thoughts. Di-Notes features a sleek UI, markdown support, and an interactive graph view to visualize connections between your ideas.
 
 ## ✨ Features
 
@@ -26,8 +26,8 @@ Follow these steps to set up the project locally.
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/your-username/neuro-notes.git
-cd neuro-notes
+git clone https://github.com/your-username/di-notes.git
+cd di-notes
 ```
 
 ### 2. Install Dependencies

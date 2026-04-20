@@ -4,7 +4,7 @@ const SettingsContext = createContext();
 
 export function SettingsProvider({ children }) {
   const [settings, setSettings] = useState(() => {
-    const saved = localStorage.getItem('neuro_settings');
+    const saved = localStorage.getItem('di_settings');
     return saved ? JSON.parse(saved) : {
       showLabels: true,
       enableHighlight: true,
@@ -16,7 +16,7 @@ export function SettingsProvider({ children }) {
   const [resetLayoutSignal, setResetLayoutSignal] = useState(0);
 
   useEffect(() => {
-    localStorage.setItem('neuro_settings', JSON.stringify(settings));
+    localStorage.setItem('di_settings', JSON.stringify(settings));
   }, [settings]);
 
   const updateSettings = (key, value) => {

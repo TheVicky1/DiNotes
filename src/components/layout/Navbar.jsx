@@ -37,7 +37,7 @@ export default function Navbar({ onMenuClick }) {
             <Brain className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
           </div>
           <h1 className="text-lg sm:text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
-            NeuroNote
+            DiNotes
           </h1>
         </div>
       </div>

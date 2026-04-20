@@ -38,7 +38,7 @@ export default function Signup() {
             <Brain className="w-10 h-10 text-primary" />
           </div>
           <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
-            Join NeuroNote
+            Join DiNotes
           </h1>
           <p className="text-textSecondary mt-2 text-center text-sm">
             Create an account to build your knowledge graph.
