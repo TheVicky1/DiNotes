@@ -17,6 +17,69 @@ import {
 } from 'lucide-react';
 import toast from 'react-hot-toast';
 
+const Section = ({ title, icon: Icon, children, variant = 'default' }) => (
+  <div className={`glass p-6 rounded-3xl mb-6 border transition-all ${
+    variant === 'danger' ? 'border-red-500/20 bg-red-500/5' : 'border-surfaceBorder'
+  }`}>
+    <div className="flex items-center gap-3 mb-6">
+      <div className={`p-2 rounded-xl ${
+        variant === 'danger' ? 'bg-red-500/10 text-red-400' : 'bg-primary/10 text-primary'
+      }`}>
+        <Icon className="w-5 h-5" />
+      </div>
+      <h2 className={`text-xl font-bold ${variant === 'danger' ? 'text-red-400' : 'text-textPrimary'}`}>
+        {title}
+      </h2>
+    </div>
+    <div className="space-y-4">
+      {children}
+    </div>
+  </div>
+);
+
+const ToggleRow = ({ label, description, iconOn: IconOn, iconOff: IconOff, value, onToggle }) => (
+  <div className="flex items-center justify-between p-4 rounded-2xl bg-surface/30 border border-surfaceBorder hover:border-primary/30 transition-all group">
+    <div>
+      <div className="font-semibold text-textPrimary flex items-center gap-2">
+        {label}
+      </div>
+      <div className="text-xs text-textSecondary mt-0.5">{description}</div>
+    </div>
+    <button
+      onClick={onToggle}
+      className={`w-14 h-8 rounded-full transition-all relative flex items-center px-1 ${
+        value ? 'bg-primary' : 'bg-surfaceBorder'
+      }`}
+    >
+      <div className={`w-6 h-6 rounded-full bg-white shadow-md transform transition-transform duration-200 flex items-center justify-center overflow-hidden ${
+        value ? 'translate-x-6' : 'translate-x-0'
+      }`}>
+        {value ? <IconOn className="w-3.5 h-3.5 text-primary" /> : <IconOff className="w-3.5 h-3.5 text-slate-400" />}
+      </div>
+    </button>
+  </div>
+);
+
+const ActionRow = ({ label, description, buttonLabel, onClick, variant = 'default', icon: Icon }) => (
+  <div className="flex items-center justify-between p-4 rounded-2xl bg-surface/30 border border-surfaceBorder">
+    <div>
+      <div className="font-semibold text-textPrimary">{label}</div>
+      <div className="text-xs text-textSecondary mt-0.5">{description}</div>
+    </div>
+    <button
+      onClick={onClick}
+      className={`px-4 py-2 rounded-xl text-sm font-bold flex items-center gap-2 transition-all ${
+        variant === 'danger'
+          ? 'bg-red-500/10 text-red-400 hover:bg-red-500 hover:text-white'
+          : 'bg-primary/10 text-primary hover:bg-primary hover:text-white'
+      }`}
+    >
+      <Icon className="w-4 h-4" />
+      {buttonLabel}
+    </button>
+  </div>
+);
+
 export default function Settings() {
   const { 
     showLabels, 
@@ -57,69 +120,6 @@ export default function Settings() {
       setIsDeleting(false);
     }
   };
-
-  const Section = ({ title, icon: Icon, children, variant = 'default' }) => (
-    <div className={`glass p-6 rounded-3xl mb-6 border transition-all ${
-      variant === 'danger' ? 'border-red-500/20 bg-red-500/5' : 'border-surfaceBorder'
-    }`}>
-      <div className="flex items-center gap-3 mb-6">
-        <div className={`p-2 rounded-xl ${
-          variant === 'danger' ? 'bg-red-500/10 text-red-400' : 'bg-primary/10 text-primary'
-        }`}>
-          <Icon className="w-5 h-5" />
-        </div>
-        <h2 className={`text-xl font-bold ${variant === 'danger' ? 'text-red-400' : 'text-textPrimary'}`}>
-          {title}
-        </h2>
-      </div>
-      <div className="space-y-4">
-        {children}
-      </div>
-    </div>
-  );
-
-  const ToggleRow = ({ label, description, iconOn: IconOn, iconOff: IconOff, value, onToggle }) => (
-    <div className="flex items-center justify-between p-4 rounded-2xl bg-surface/30 border border-surfaceBorder hover:border-primary/30 transition-all group">
-      <div>
-        <div className="font-semibold text-textPrimary flex items-center gap-2">
-          {label}
-        </div>
-        <div className="text-xs text-textSecondary mt-0.5">{description}</div>
-      </div>
-      <button 
-        onClick={onToggle}
-        className={`w-14 h-8 rounded-full transition-all relative flex items-center px-1 ${
-          value ? 'bg-primary' : 'bg-surfaceBorder'
-        }`}
-      >
-        <div className={`w-6 h-6 rounded-full bg-white shadow-md transform transition-transform duration-200 flex items-center justify-center overflow-hidden ${
-          value ? 'translate-x-6' : 'translate-x-0'
-        }`}>
-          {value ? <IconOn className="w-3.5 h-3.5 text-primary" /> : <IconOff className="w-3.5 h-3.5 text-slate-400" />}
-        </div>
-      </button>
-    </div>
-  );
-
-  const ActionRow = ({ label, description, buttonLabel, onClick, variant = 'default', icon: Icon }) => (
-    <div className="flex items-center justify-between p-4 rounded-2xl bg-surface/30 border border-surfaceBorder">
-      <div>
-        <div className="font-semibold text-textPrimary">{label}</div>
-        <div className="text-xs text-textSecondary mt-0.5">{description}</div>
-      </div>
-      <button 
-        onClick={onClick}
-        className={`px-4 py-2 rounded-xl text-sm font-bold flex items-center gap-2 transition-all ${
-          variant === 'danger' 
-            ? 'bg-red-500/10 text-red-400 hover:bg-red-500 hover:text-white' 
-            : 'bg-primary/10 text-primary hover:bg-primary hover:text-white'
-        }`}
-      >
-        <Icon className="w-4 h-4" />
-        {buttonLabel}
-      </button>
-    </div>
-  );
 
   return (
     <div className="p-4 sm:p-8 max-w-4xl mx-auto w-full">

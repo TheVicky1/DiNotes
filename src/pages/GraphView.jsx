@@ -175,6 +175,7 @@ function GraphContent() {
     };
   }, [currentUser]);
 
+  // eslint-disable-next-line no-unused-vars
   const getTagColor = (tag) => {
     if (!tag) return null;
     let hash = 0;

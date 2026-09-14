@@ -21,6 +21,7 @@ export function NotesProvider({ children }) {
 
   useEffect(() => {
     if (!currentUser) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setNotes([]);
       setLinks([]);
       setLoading(false);
