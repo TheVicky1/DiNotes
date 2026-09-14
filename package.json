@@ -16,7 +16,7 @@
     "mammoth": "^1.12.0",
     "pdfjs-dist": "^6.3.289",
     "react": "^19.2.4",
-    "react-dom": "^19.2.4",
+    "react-dom": "^19.3.0",
     "react-hot-toast": "^2.6.0",
     "react-markdown": "^10.1.0",
     "react-router-dom": "^7.14.1",
@@ -26,7 +26,7 @@
   "devDependencies": {
     "@eslint/js": "^9.39.4",
     "@types/react": "^19.2.14",
-    "@types/react-dom": "^19.2.3",
+    "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^6.1.1",
     "autoprefixer": "^10.5.0",
     "eslint": "^9.39.4",
